@@ -19,3 +19,14 @@ console.log('Strings with \n\ multiple \n\ lines');
 console.log(`Strings with
 multiple
 lines`);
+
+const age = 15;
+const isOldEnough = age >= 18;
+
+if (isOldEnough) {
+    console.log('Sara can start driving licence 🚗');
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Sara is too young. Wait another ${yearsLeft} years 😉`);
+}
+
