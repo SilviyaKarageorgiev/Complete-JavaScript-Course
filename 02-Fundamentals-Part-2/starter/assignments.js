@@ -48,3 +48,44 @@ console.log(populations.length === 4);
 
 const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
 console.log(percentages);
+
+const neighbours = ['Romania', 'Serbia', 'North Macedonia', 'Greece', 'Turkey'];
+neighbours.push('Utopia');
+neighbours.pop();
+
+if (!neighbours.includes('Germany')) {
+    console.log('Probably not a central European country :D');
+}
+
+const indexMacedonia = neighbours.indexOf('North Macedonia');
+neighbours[indexMacedonia] = 'Macedonia';
+console.log(neighbours);
+
+const myCountry = {
+    country: 'Bulgaria',
+    capital: 'Sofia',
+    language: 'bulgarian',
+    population: 6.8,
+    neighbours: ['Romania', 'Serbia', 'North Macedonia', 'Greece', 'Turkey'],
+    describe: function () {
+        console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`)
+    },
+    checkIsland: function () {
+        const isIsland = this.neighbours === 0 ? true : false;
+        return isIsland;
+    }
+};
+
+console.log(myCountry);
+
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`);
+
+myCountry.population += 2;
+console.log(myCountry);
+
+myCountry['population'] -= 2;
+console.log(myCountry);
+
+myCountry.describe();
+
+console.log(myCountry.checkIsland());
