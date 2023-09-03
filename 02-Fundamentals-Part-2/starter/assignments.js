@@ -93,3 +93,26 @@ console.log(myCountry.checkIsland());
 for (let index = 1; index <= 50; index++) {
     console.log(`Voter number ${index} is currently voting`);
 }
+
+const percentages2 = [];
+for (let i = 0; i <= populations.length - 1; i++) {
+    percentages2.push(percentageOfWorld1(populations[i]));
+}
+
+console.log(percentages2);
+
+const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+
+for (let i = 0; i <= listOfNeighbours.length - 1; i++) {
+    for (let j = 0; j <= listOfNeighbours[i].length - 1; j++) {
+        console.log(`Neighbour: ${listOfNeighbours[i][j]}`)
+    }
+}
+
+const percentages3 = [];
+let i = 0;
+while (i < populations.length) {
+    percentages3.push(percentageOfWorld1(populations[i]));
+    i++;
+}
+console.log(percentages3);
