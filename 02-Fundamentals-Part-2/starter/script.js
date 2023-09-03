@@ -79,7 +79,7 @@ const jonas = {
     },
 
     getSummary: function () {
-        return `${this.firstName} is a ${this.calcAge()}-years old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license. He has ${this.friends.length} friends and his best friend is ${this.friends[0]}. At this time ${this.firstName} is in ${this.location}.`
+        return `${this.firstName} is a ${this.calcAge()}-years old ${this.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license. He has ${this.friends.length} friends and his best friend is ${this.friends[0]}. At this time ${this.firstName} is in ${this.location}.`;
     }
 };
 
@@ -94,3 +94,17 @@ console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his bes
 console.log(jonas.calcAge());
 console.log(jonas.age);
 console.log(jonas.getSummary());
+
+for (let i = 1; i <= 10; i++) {
+    console.log(`${i}`);
+}
+
+const arr = ['Jonas', 32, ['Michael', 'Joe', 'Peter'], true];
+const types = [];
+
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i], typeof arr[i]);
+    //types[i] = typeof arr[i];
+    types.push(typeof arr[i]);
+}
+console.log(types);
