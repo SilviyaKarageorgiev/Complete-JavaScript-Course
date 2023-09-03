@@ -36,3 +36,15 @@ const percentGermany3 = percentageOfWorld3(83.2);
 const percentFrance3 = percentageOfWorld3(68.7);
 console.log(percentBulgaria3, percentGermany3, percentFrance3);
 
+function describePopulation(country, population) {
+    const percent = percentageOfWorld1(population);
+    return `${country} has ${population} million people, which is about ${percent}% of the world.`;
+}
+
+console.log(describePopulation('Bulgaria', 6.8));
+
+const populations = [6.8, 83.2, 68.7, 1441];
+console.log(populations.length === 4);
+
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
+console.log(percentages);

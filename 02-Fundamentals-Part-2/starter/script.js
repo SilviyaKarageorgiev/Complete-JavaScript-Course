@@ -31,3 +31,11 @@ const yearsUntilRetirement = birthYear => {
     return retirement;
 }
 console.log(yearsUntilRetirement(1987));
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+const friends = ['Michael', 'Steven', 'Peter'];
+friends[2] = 'Mitko';
+console.log(friends);
