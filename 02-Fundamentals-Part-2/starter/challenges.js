@@ -65,3 +65,29 @@ console.log(john.calcBMI());
 const higherBMI = mark.calcBMI() > john.calcBMI() ? `${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${john.fullName}'s (${john.calcBMI()})!` : `${john.fullName}'s BMI (${john.calcBMI()}) is higher than ${mark.fullName}'s (${mark.calcBMI()})!`;
 
 console.log(higherBMI);
+
+// Challenge 4
+
+const billss = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tipss = [];
+const totalss = [];
+
+for (let i = 0; i < billss.length; i++) {
+    const currTip = calcTip(billss[i]);
+    tipss.push(currTip);
+    const currTotal = billss[i] + currTip;
+    totalss.push(currTotal);
+}
+
+console.log(tipss);
+console.log(totalss);
+
+function calcAvgArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum / arr.length;
+}
+
+console.log(calcAvgArray(totalss));
