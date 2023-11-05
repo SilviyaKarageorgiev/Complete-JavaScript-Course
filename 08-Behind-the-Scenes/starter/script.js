@@ -32,3 +32,36 @@ function calcAge(birthYear) {
 
 const firstName = 'Jonas';
 calcAge(1991);
+
+// Variables
+console.log(me);
+// console.log(job);
+// console.log(year);
+
+var me = 'Jonas';
+let job = 'techer';
+const year = 1991;
+
+// Functions
+console.log(addDeclaration(2, 3));
+//console.log(addExpression(2, 3));
+//console.log(addArrow(2, 3));
+
+function addDeclaration(a, b) {
+  return a + b;
+}
+
+const addExpression = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
+
+// Example
+
+if (!numProducts) deleteShoppingCart();
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
