@@ -1,91 +1,143 @@
 'use strict';
 
-// console.log(document.querySelector('.message').textContent);
-// document.querySelector('.message').textContent = '🎉 Correct number!';
-// document.querySelector('.number').textContent = 13;
-// document.querySelector('.score').textContent = 10;
+function calcAge(birthYear) {
+  const age = 2023 - birthYear;
 
-// document.querySelector('.guess').value = 23;
-// console.log(document.querySelector('.guess').value);
+  function printAge() {
+    const output = `${firstName}, you are ${age}, born in ${birthYear}`;
+    console.log(output);
 
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
-let score = 20;
-let highscore = 0;
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      var millenial = true;
+      // Creating new variable with same name as outer scope's variable
+      const firstName = 'Steven';
 
-const displayMessage = function (message) {
-  document.querySelector('.message').textContent = message;
+      // Reasigning outer scope's variable
+      const output = 'NEW OUTPUT!';
+
+      const str = `Oh, and you're a millenial, ${firstName}`;
+      console.log(str);
+
+      function add(a, b) {
+        return a + b;
+      }
+    }
+    console.log(millenial);
+    console.log(output);
+  }
+  printAge();
+
+  return age;
+}
+
+const firstName = 'Jonas';
+calcAge(1991);
+
+// Variables
+console.log(me);
+// console.log(job);
+// console.log(year);
+
+var me = 'Jonas';
+let job = 'techer';
+const year = 1991;
+
+// Functions
+console.log(addDeclaration(2, 3));
+//console.log(addExpression(2, 3));
+//console.log(addArrow(2, 3));
+
+function addDeclaration(a, b) {
+  return a + b;
+}
+
+const addExpression = function (a, b) {
+  return a + b;
 };
 
-document.querySelector('.check').addEventListener('click', function () {
-  const guess = Number(document.querySelector('.guess').value);
-  console.log(guess);
+const addArrow = (a, b) => a + b;
 
-  // When there is no input
-  if (!guess) {
-    //document.querySelector('.message').textContent = '⛔ No number';
-    displayMessage('⛔ No number');
+// Example
 
-    // When player wins
-  } else if (guess === secretNumber) {
-    //document.querySelector('.message').textContent = '🎉 Correct number!';
-    displayMessage('🎉 Correct number!');
-    document.querySelector('.number').textContent = secretNumber;
+if (!numProducts) deleteShoppingCart();
+var numProducts = 10;
 
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    document.querySelector('.number').style.width = '30rem';
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
 
-    if (score > highscore) {
-      highscore = score;
-      document.querySelector('.highscore').textContent = highscore;
-    }
+console.log(this); // window
 
-    // When guess is wrong
-  } else if (guess !== secretNumber) {
-    if (score > 1) {
-      // document.querySelector('.message').textContent =
-      //   guess > secretNumber ? '📈 Too high!' : '📉 Too low!';
-      displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      // document.querySelector('.message').textContent = '💥 You lost the game!';
-      displayMessage('💥 You lost the game!');
-      document.querySelector('.score').textContent = 0;
-    }
-  }
+const calcAge2 = function (birthYear) {
+  console.log(2023 - birthYear);
+  console.log(this); // undefined
+};
+calcAge2(1987);
 
-  // When guess is too high
-  //   } else if (guess > secretNumber) {
-  //     if (score > 1) {
-  //       document.querySelector('.message').textContent = '📈 Too high!';
-  //       score--;
-  //       document.querySelector('.score').textContent = score;
-  //     } else {
-  //       document.querySelector('.message').textContent = '💥 You lost the game!';
-  //       document.querySelector('.score').textContent = 0;
-  //     }
+const calcAgeArrow = birthYear => {
+  console.log(2023 - birthYear);
+  console.log(this); // window
+};
+calcAgeArrow(1992);
 
-  //     // When guess is too low
-  //   } else if (guess < secretNumber) {
-  //     if (score > 1) {
-  //       document.querySelector('.message').textContent = '📉 Too low!';
-  //       score--;
-  //       document.querySelector('.score').textContent = score;
-  //     } else {
-  //       document.querySelector('.message').textContent = '💥 You lost the game!';
-  //       document.querySelector('.score').textContent = 0;
-  //     }
-  //   }
-});
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+};
+jonas.calcAge();
 
-document.querySelector('.again').addEventListener('click', function () {
-  score = 20;
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
-  //document.querySelector('.message').textContent = 'Start guessing...';
-  displayMessage('Start guessing...');
-  document.querySelector('.score').textContent = score;
-  document.querySelector('.number').textContent = '?';
-  document.querySelector('.guess').value = '';
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.number').style.width = '15rem';
-});
+const matilda = {
+  year: 2015,
+};
+
+matilda.calcAge = jonas.calcAge; // borrowed method from one object to another
+matilda.calcAge();
+
+const jonas2 = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+  greet: () => console.log(`Hey ${this.firstName}`),
+};
+jonas2.greet(); // Hey undefined
+
+const jonas3 = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+  greet: function () {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+jonas3.greet(); // Hey Jonas
+
+const jonas4 = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    const isMillenial = () => {
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+  greet: () => {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+jonas4.greet();
+jonas4.calcAge();
+
+const addExpr = function (a, b) {
+  console.log(arguments); // arguments keyword exists in regular functions (expression, declaration), but not in arrow functions
+  return a + b;
+};
+addExpr(2, 5);
