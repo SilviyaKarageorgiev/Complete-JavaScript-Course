@@ -65,3 +65,79 @@ var numProducts = 10;
 function deleteShoppingCart() {
   console.log('All products deleted!');
 }
+
+console.log(this); // window
+
+const calcAge2 = function (birthYear) {
+  console.log(2023 - birthYear);
+  console.log(this); // undefined
+};
+calcAge2(1987);
+
+const calcAgeArrow = birthYear => {
+  console.log(2023 - birthYear);
+  console.log(this); // window
+};
+calcAgeArrow(1992);
+
+const jonas = {
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+};
+jonas.calcAge();
+
+const matilda = {
+  year: 2015,
+};
+
+matilda.calcAge = jonas.calcAge; // borrowed method from one object to another
+matilda.calcAge();
+
+const jonas2 = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+  greet: () => console.log(`Hey ${this.firstName}`),
+};
+jonas2.greet(); // Hey undefined
+
+const jonas3 = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+  greet: function () {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+jonas3.greet(); // Hey Jonas
+
+const jonas4 = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    const isMillenial = () => {
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+  greet: () => {
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+jonas4.greet();
+jonas4.calcAge();
+
+const addExpr = function (a, b) {
+  console.log(arguments); // arguments keyword exists in regular functions (expression, declaration), but not in arrow functions
+  return a + b;
+};
+addExpr(2, 5);
