@@ -141,3 +141,21 @@ const addExpr = function (a, b) {
   return a + b;
 };
 addExpr(2, 5);
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me2 = {
+  name: 'Jonas',
+  age: 30,
+};
+const friend2 = me2;
+friend2.age = 27;
+console.log('Friend:', friend2);
+console.log('Me:', me2);
+
+let lastName = 'Williams';
+let old;
