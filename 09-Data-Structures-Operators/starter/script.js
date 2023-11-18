@@ -47,6 +47,10 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
 };
 
 restaurant.orderDelivery({
@@ -162,3 +166,38 @@ console.log(...str);
 // Objects
 const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
 console.log(newRestaurant);
+
+// 1) Destructuring
+
+// SPREAD, because on RIGHT side of =
+const array = [1, 2, ...[3, 4]];
+console.log(array); // [1, 2, 3, 4]
+
+// REST, because on LEFT side of =
+const [t, w, ...others] = [1, 2, 3, 4, 5];
+console.log(t, w, others); // 1 2 [3, 4, 5]
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+
+const h = [23, 5, 7];
+add(...h);
+
+restaurant.orderPizza('salami', 'tomatoes', 'chilli pepper');
